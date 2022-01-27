@@ -16,29 +16,23 @@ fun whatNumeralToUse(seconds: Int): String{
 }
 
 
-
 fun getThePhrase(seconds: Int): String{
 
     val num = whatNumeralToUse(seconds)
-
     var keyWord = ""
-    when (num){
 
+    when (num){
         "min" -> keyWord = getMinutesPhrase(seconds)
         "hours" -> keyWord = getHoursPhrase(seconds)
-
     }
 
     var phrase = ""
 
-
     when (num){
-
         "ages_ago" -> phrase = "Был давно"
         "yesterday" -> phrase = "Был вчера"
         "today" -> phrase = "Был сегодня"
         in "min", "hours" -> phrase = "Был $keyWord  назад"
-
     }
 
     return phrase
@@ -49,15 +43,12 @@ fun getThePhrase(seconds: Int): String{
 fun getMinutesPhrase(seconds: Int): String{
 
     val minutes = seconds / 60
-
     var keyWord = ""
 
     when {
 
         ((minutes / 5) % 2 == 1) && minutes in 11..20 -> keyWord = "$minutes минут"
-
         (minutes % 10 == 1 || minutes / 10 != 1) && minutes == 1 -> keyWord = "$minutes минуту"
-
         (minutes % 10 in 2..4) || (minutes / 10 != 1) -> keyWord = "$minutes минуты"
 
     }
@@ -70,7 +61,6 @@ fun getMinutesPhrase(seconds: Int): String{
 fun getHoursPhrase(seconds: Int): String{
 
     val hours = seconds / 60 / 60
-
     var keyWord = ""
 
     when {
@@ -84,12 +74,6 @@ fun getHoursPhrase(seconds: Int): String{
     return keyWord
 
 }
-
-
-
-
-
-
 
 
 fun main(args: Array<String>) {
